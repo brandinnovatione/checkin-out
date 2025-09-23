@@ -8,141 +8,43 @@
   <meta property="og:title" content="📢 ประกาศแจ้งพนักงาน — ป้ายซิ่ง" />
   <meta property="og:description" content="26 ก.ย. 2568: หยุดทำการ • 28 ก.ย. 2568: ทำงานปกติ" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/9919?s=200&v=4" />
   <meta name="theme-color" content="#111827" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b1020; /* ดำอมฟ้า ละมุนตา */
-      --fg:#e5e7eb; /* ข้อความอ่อน */
-      --fg-strong:#f9fafb; /* ข้อความหลัก */
-      --muted:#9ca3af; /* ข้อความรอง */
-      --card:#111827cc; /* การ์ดโปร่งเล็กน้อย */
-      --accent:#06b6d4; /* ฟ้าอมเขียวมินิมอล */
-      --accent-2:#22d3ee; /* hover ไล่เฉด */
-      --success:#10b981; /* เขียวปุ่ม */
+    body {
+      margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh;
+      background: #0b1020; color: #e5e7eb; font-family: "Sarabun", sans-serif; line-height: 1.6;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;display:grid;place-items:center;min-height:100vh;
-      background: radial-gradient(1200px 800px at 80% -10%, #1f2937 0%, transparent 60%),
-                  radial-gradient(900px 600px at -10% 110%, #0f172a 0%, transparent 60%),
-                  var(--bg);
-      color:var(--fg);
-      font-family:"Sarabun", system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans Thai', 'Sarabun', sans-serif;
-      line-height:1.6;
+    .card {
+      max-width: 720px; background: #111827cc; border-radius: 18px; padding: 28px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(10px);
     }
-    .wrap{width:min(720px,92vw); padding:24px}
-    .card{
-      background:var(--card);
-      backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px; padding:28px 22px; box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      transform: translateY(6px);
-      animation: fadeUp .8s cubic-bezier(.2,.7,.2,1) both;
+    h1 { font-size: 24px; font-weight: 700; color: #f9fafb; margin: 0 0 16px; }
+    .desc { margin: 12px 0; }
+    .list { list-style: none; padding: 0; margin: 12px 0 20px; }
+    .list li { margin: 8px 0; padding: 10px 12px; background: rgba(255,255,255,.05); border-radius: 12px; }
+    .btn {
+      display: inline-block; width: 100%; padding: 14px 20px; font-size: 16px; font-weight: 700;
+      background: linear-gradient(135deg, #34d399, #10b981); border: none; border-radius: 14px;
+      color: #00110a; cursor: pointer; text-align: center;
     }
-    @keyframes fadeUp{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:translateY(0)}}
-    .badge{display:inline-flex;gap:8px;align-items:center; font-size:14px; color:var(--muted);
-      border:1px solid rgba(255,255,255,.08); padding:6px 10px; border-radius:999px; margin-bottom:12px}
-    .title{font-weight:700; color:var(--fg-strong); font-size: clamp(22px, 4.5vw, 28px); letter-spacing:.2px}
-    .brand{color:var(--accent);}
-    .desc{margin:12px 0 14px; color:var(--fg); font-weight:400}
-    .list{margin:10px 0 18px; padding-left:0; list-style:none}
-    .list li{display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.02); border:1px dashed rgba(255,255,255,.08)}
-    .dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex:0 0 10px; background:var(--accent)}
-    .muted{color:var(--muted); font-size:14px}
-    .btn{
-      --padY:14px; --padX:20px;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%;
-      padding: var(--padY) var(--padX); border-radius:14px; border:0; cursor:pointer;
-      font-weight:700; letter-spacing:.2px; font-size:16px; color:#00110a;
-      background: linear-gradient(135deg, #34d399, #10b981 60%, #059669);
-      box-shadow: 0 8px 20px rgba(16,185,129,.3);
-      transition: transform .09s ease, box-shadow .2s ease, filter .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(16,185,129,.35)}
-    .btn:active{transform:translateY(0)}
-    .btn small{font-weight:600; opacity:.8}
-    .footer{margin-top:16px; text-align:center}
-    .logo{display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:14px}
-    .logo b{color:var(--fg); font-weight:700}
-    .sr-only{position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
-    .dates{display:grid; gap:8px; margin:16px 0 6px}
-    .pill{display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.03)}
-    .pill .status{font-weight:700}
-    .pill .off{color:#fca5a5}
-    .pill .on{color:#86efac}
-    .hint{font-size:13px; color:var(--muted)}
-    .hr{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); margin:18px 0}
-    .mini{font-size:12px; color:var(--muted)}
+    .btn:hover { background: linear-gradient(135deg, #6ee7b7, #34d399); }
+    .hint { font-size: 13px; color: #9ca3af; margin-top: 12px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <main class="card" role="main" aria-labelledby="title">
-      <div class="badge" aria-hidden="true">
-        <span>📅</span>
-        <span>ประกาศภายใน • ปรับวันหยุด</span>
-      </div>
-
-      <h1 id="title" class="title">📢 ประกาศแจ้งพนักงาน <span class="brand">บริษัท แบรนด์ อินโนเวชั่น จำกัด (ป้ายซิ่ง)</span></h1>
-
-      <p class="desc">เพื่อความสะดวกในการจัดการงานภายในบริษัท ทางบริษัทขอประกาศ <strong>เปลี่ยนวันหยุดประจำสัปดาห์</strong> ดังนี้</p>
-
-      <ul class="list" aria-label="รายละเอียดการเปลี่ยนแปลง">
-        <li>
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <div class="pill"><span>🗓️</span><span class="status off">วันศุกร์ที่ 26 กันยายน 2568</span> <span class="muted">→</span> <span class="muted">หยุดทำการ 1 วัน</span></div>
-          </div>
-        </li>
-        <li>
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <div class="pill"><span>🗓️</span><span class="status on">วันอาทิตย์ที่ 28 กันยายน 2568</span> <span class="muted">→</span> <span class="muted">ทำงานตามปกติ</span></div>
-          </div>
-        </li>
-      </ul>
-
-      <p>ขอให้พนักงานทุกท่านรับทราบและวางแผนงานให้เรียบร้อย<br/>ขอบคุณทุกท่านที่ให้ความร่วมมือ 🙏</p>
-
-      <div class="hr" aria-hidden="true"></div>
-
-      <button class="btn" id="ackBtn" type="button" aria-label="รับทราบและเข้าสู่หน้าบันทึกงาน">
-        ✅ รับทราบ และเข้าสู่หน้าบันทึกงาน
-        <small>Open LINE LIFF</small>
-      </button>
-
-      <p class="hint">หากปุ่มไม่ทำงาน ให้คัดลอกลิงก์นี้ไปเปิดใน LINE: <span class="mini" id="linkText">https://liff.line.me/2006738214-Q2Yrq7M7</span></p>
-
-      <footer class="footer">
-        <div class="logo" aria-label="ตราบริษัท">
-          <span>©</span>
-          <b>Brand Innovation Co., Ltd.</b>
-          <span>• ป้ายซิ่ง</span>
-        </div>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    (function(){
-      const LIFF_URL = "https://liff.line.me/2006738214-Q2Yrq7M7";
-      const btn = document.getElementById('ackBtn');
-      const linkText = document.getElementById('linkText');
-      if(linkText) linkText.textContent = LIFF_URL;
-      btn?.addEventListener('click', ()=>{
-        // เปิดในหน้าปัจจุบันทันทีเพื่อให้ UX ลื่นไหลก่อนเข้า LIFF
-        window.location.href = LIFF_URL;
-      });
-
-      // รองรับเปิดบน iOS/Android/เดสก์ท็อป: ใส่ focus outline เมื่อใช้คีย์บอร์ด
-      let byKeyboard=false;
-      window.addEventListener('keydown', e=>{ if(e.key==='Tab') document.body.classList.add('kbd') });
-    })();
-  </script>
+  <main class="card">
+    <h1>📢 ประกาศแจ้งพนักงาน บริษัท แบรนด์ อินโนเวชั่น จำกัด (ป้ายซิ่ง)</h1>
+    <p class="desc">เพื่อความสะดวกในการจัดการงานภายในบริษัท ทางบริษัทขอประกาศ <strong>เปลี่ยนวันหยุดประจำสัปดาห์</strong> ดังนี้</p>
+    <ul class="list">
+      <li>🗓️ วันศุกร์ที่ 26 กันยายน 2568 → <strong>หยุดทำการ 1 วัน</strong></li>
+      <li>🗓️ วันอาทิตย์ที่ 28 กันยายน 2568 → <strong>ทำงานตามปกติ</strong></li>
+    </ul>
+    <p>ขอให้พนักงานทุกท่านรับทราบและวางแผนงานให้เรียบร้อย<br/>ขอบคุณทุกท่านที่ให้ความร่วมมือ 🙏</p>
+    <a class="btn" href="https://liff.line.me/2006738214-Q2Yrq7M7">✅ รับทราบ และเข้าสู่หน้าบันทึกงาน</a>
+    <p class="hint">หากปุ่มไม่ทำงาน ให้คัดลอกลิงก์นี้ไปเปิดใน LINE: https://liff.line.me/2006738214-Q2Yrq7M7</p>
+  </main>
 </body>
 </html>
